@@ -1,5 +1,5 @@
 //1 задание----------------------
-
+/*
 let name = prompt('Введите ваше имя');
 while (name === ''){
     name = prompt('Введите ваше имя!!!');
@@ -35,16 +35,20 @@ console.log(Year);
 
 //3 задание----------------------
 let string = prompt('Введите 6 цифр');
-if (!isNaN(parseFloat(string)) && isFinite(string)){
 
-    if((+string.charAt(0))+(+string.charAt(1))+(+string.charAt(2)) === (+string.charAt(3))+(+string.charAt(4))+(+string.charAt(5))){
-    alert('Да');
-} else {
-    alert('Нет');
-} } else {
-    alert('Введите число!!!');
+if (string.length !==6) {
+    alert('Введите только 6 символов')
+    } else if (!isNaN(parseFloat(string)) && isFinite(string) ){
+        if((+string.charAt(0))+(+string.charAt(1))+(+string.charAt(2)) === (+string.charAt(3))+(+string.charAt(4))+(+string.charAt(5))){
+            alert('Да');
+        } else {
+            alert('Нет');
+        } 
+    }  else {
+        alert('Введите число!!!');
 }
 
+/*
 //4 задание----------------------
 
 let a = +prompt('Введите цыфру');
@@ -131,19 +135,64 @@ if ((!isNaN(parseFloat(day)) && isFinite(day))  && (day>0 && day<=31)){
 } else {
     alert('Вы ввели некорректные данные!!!');
 }
-
+*/
 // 9 задание----------------------
 
 let days_year = +prompt('Введите колличество дней');
 if ((!isNaN(parseFloat(days_year)) && isFinite(days_year)) && (days_year>0)){
 
-
     let year_s = days_year/365;
-    let month = days_year*0.03285;
-    let weeks = days_year*0.1429;
-    let hour = days_year*24;
-    let minutes = days_year*1440;
-    let seconds = days_year*86400;
+    let YEAR_S = year_s.toFixed(0);
+    let YEAR_SS = String(YEAR_S);
+
+
+    //console.log(+YEAR_SS.charAt(2)+ ' месяца');
+
+    if ((year_s.toFixed(0).length-1) == 1) {
+        console.log(YEAR_SS.charAt(2) +' год');
+    }
+    if (((year_s.toFixed(0).length-1) == 2) ||  ((YEAR_SS.charAt(2).length-1) == 3) || ((YEAR_SS.charAt(2).length-1) == 4) )  {
+        console.log(+YEAR_SS.charAt(2) +' года');
+    }
+    if (((year_s.toFixed(0).length-1) == 5) ||  ((YEAR_SS.charAt(2).length-1) == 6) || ((YEAR_SS.charAt(2).length-1) == 7) 
+     || ((year_s.toFixed(0).length-1) == 8) ||  ((YEAR_SS.charAt(2).length-1) == 9) || ((YEAR_SS.charAt(2).length-1) == 0) )  {
+        console.log(+YEAR_SS.charAt(2) +' лет');
+    }
+}
+
+/*
+1 год
+2 года
+5 лет
+
+21 год
+22 года
+29 лет
+30лет
+
+31 год
+32 года
+39 лет
+40 лет
+*/
+/*
+
+    let month = (days_year/31)-(12*year_s);
+
+let Y = -month.toFixed(1);
+let YY = String(Y);
+    console.log(+YY.charAt(2)+ ' месяца');
+
+    /*
+    console.log(-month.toFixed(1) +' Месяца')*/
+
+/*
+    let year_s = days_year/365;
+    let month = (days_year/31);
+    let weeks = (days_year*0.1429)-month;
+    let hour = (days_year*24)-weeks;
+    let minutes = (days_year*1440)-hour;
+    let seconds = (days_year*86400);
     
     console.log(year_s.toFixed(2) + ' Года\n\
     ' + month.toFixed(2) +' Месяца\n\
@@ -155,8 +204,8 @@ if ((!isNaN(parseFloat(days_year)) && isFinite(days_year)) && (days_year>0)){
 else {
     alert('Вы ввели некорректные данные!!!');
 }
-    
-
+    */
+/*
 // 10 задание----------------------
 
 let Day = +prompt('Введите день от 1 до 365');
@@ -216,3 +265,26 @@ if ((!isNaN(parseFloat(Day)) && isFinite(Day))  && (Day>0 && Day<=365)){
 } else {
     alert('Вы ввели некорректные данные!!!');
 }
+*/
+/*
+let days_year = +prompt('Введите колличество дней');
+if ((!isNaN(parseFloat(days_year)) && isFinite(days_year)) && (days_year>0)){
+
+    let year_s = days_year/365;
+    let month = (days_year/31);
+    let weeks = (days_year*0.1429)-month;
+    let hour = (days_year*24)-weeks;
+    let minutes = (days_year*1440)-hour;
+    let seconds = (days_year*86400);
+    
+    console.log(year_s.toFixed(2) + ' Года\n\
+    ' + month.toFixed(2) +' Месяца\n\
+    ' + weeks.toFixed(2) + ' Недель\n\
+    ' + hour.toFixed(2) + ' Часов\n\
+    ' + minutes.toFixed(2) + ' Минут\n\
+    ' + seconds.toFixed(2) +' Секунд');
+}
+else {
+    alert('Вы ввели некорректные данные!!!');
+}
+*/
